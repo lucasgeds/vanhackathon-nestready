@@ -10,7 +10,9 @@ import { Header } from '../components';
 import ChatContainer from './ChatContainer';
 
 class BlueJayContainer extends Component {
-  async componentDidMount() {}
+  componentDidMount() {
+    this.props.getPropertyMortgageInfo();
+  }
 
   constructor(props) {
     super(props);
@@ -31,7 +33,6 @@ class BlueJayContainer extends Component {
           valueRequested: value,
         });
       case 2:
-        console.log(value);
         return this.setState({
           step: 3,
           installments: value.installments,
@@ -50,8 +51,20 @@ class BlueJayContainer extends Component {
           <h1>Cleaning the nest for your visit...</h1>
         ) : (
           <div className="bluejay-container">
-            <Header title="Champs" address="champs avenue, 8123, QB" />
-            <ChatContainer step={step} nextStepHandler={this.onStepHandler} />
+            <Header
+              title={this.props.propertyMortgage.property}
+              address={this.props.propertyMortgage.address}
+            />
+            <ChatContainer
+              step={step}
+              nextStepHandler={this.onStepHandler}
+              propertyMortgage={this.props.propertyMortgage}
+              completedBody={{
+                valueRequested: this.state.valueRequested,
+                installments: this.state.installments,
+                installment_amount: this.state.installment_amount,
+              }}
+            />
           </div>
         )}
       </div>

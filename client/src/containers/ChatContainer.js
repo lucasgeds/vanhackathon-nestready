@@ -18,11 +18,12 @@ class ChatContainer extends Component {
       chatMessages: [],
       request: {},
       showSliderStepOne: false,
+      propertyMortgage: this.props.propertyMortgage,
     };
   }
 
   componentDidMount() {
-    this.sendStepMessage();
+    this.sendStepMessage(1);
   }
 
   sendMessage = (from, message) => {
@@ -163,30 +164,34 @@ class ChatContainer extends Component {
         step: nextProps.step,
       };
     }
+    if (nextProps.propertyMortgage !== prevState.propertyMortgage) {
+      return {
+        propertyMortgage: nextProps.propertyMortgage,
+      };
+    }
     return null;
   }
 
-  sendStepMessage(step) {
-    switch (step || this.state.step) {
-      case 1:
-        return this.sendMessage(
-          BLUEJAY,
-          `Hi ${
-            this.props.propertyMortgage.borrower
-          }! How much money do you need?`,
-        );
-      case 2:
-        return this.sendMessage(
-          BLUEJAY,
-          'What fits better for you? Ajust if you whant to pay more each month or pay less  for more months...',
-        );
-      default:
-        return null;
+  sendStepMessage = step => {
+    if (this.state.propertyMortgage) {
+      switch (step || this.state.step) {
+        case 1:
+          return this.sendMessage(
+            BLUEJAY,
+            `Hi Frederick! How much money do you need?`,
+          );
+        case 2:
+          return this.sendMessage(
+            BLUEJAY,
+            'What fits better for you? Ajust if you whant to pay more each month or pay less  for more months...',
+          );
+        default:
+          return null;
+      }
     }
-  }
+  };
 
   render() {
-    console.log(this.state.step);
     return (
       <div className={`chatContainer ${this.state.step === 3 && 'completed'}`}>
         {this.state.step < 3 ? (
@@ -207,12 +212,22 @@ class ChatContainer extends Component {
             )}
           </Fragment>
         ) : (
-          <h1>
-            You are all set!
-            <br />
-            <br />
-            Our trusted realtor will answer in 24 hours
-          </h1>
+          <Fragment>
+            <h1>
+              You are all set!
+              <br />
+              Our trusted realtor will answer in 24 hours
+            </h1>
+            <p>Here's what you got:</p>
+            <ul>
+              <li>{`Amount requested: $ ${
+                this.props.completedBody.valueRequested
+              }.00`}</li>
+              <li>{`Installments details: $ ${
+                this.props.completedBody.installment_amount
+              }.00 x${this.props.completedBody.installments}`}</li>
+            </ul>
+          </Fragment>
         )}
       </div>
     );
@@ -226,10 +241,6 @@ ChatContainer.propTypes = {
   nextStepHandler: PropTypes.func,
 };
 
-const mapStateToProps = state => {
-  return { ...state };
-};
-
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
@@ -239,7 +250,4 @@ const mapDispatchToProps = dispatch =>
     dispatch,
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ChatContainer);
+export default connect(mapDispatchToProps)(ChatContainer);
