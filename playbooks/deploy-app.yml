@@ -1,0 +1,73 @@
+---
+- hosts: all
+  tasks: 
+    
+    - name: Clean Local App Clone
+      become: no
+      file:
+        path: /home/ubuntu/vanhackathon-nestready
+        state: absent
+    
+    - name: Clone App Repository
+      become: no
+      command: git clone https://github.com/lucasgeds/vanhackathon-nestready arg1
+      args:
+        creates: /home/ubuntu/vanhackathon-nestready
+    
+    - name: Install Packages
+      become: yes  
+      apt: name={{item}} state=present
+      with_items:
+        - ruby2.5
+        - ruby2.5-dev
+        - build-essential
+        - patch
+        - zlib1g-dev
+        - liblzma-dev
+        - postgresql
+        - postgresql-server-dev-all
+        - nodejs
+
+    - name: Install PostgreSQL Config
+      become: yes
+      template: src=files/pg_hba.conf dest=/etc/postgresql/10/main/pg_hba.conf
+
+    - name: Restart PostgreSQL
+      become: yes
+      service:
+        name: postgresql
+        state: restarted
+
+    - name: Install Gem Bundler
+      become: yes
+      command: gem install bundler
+      
+    - name: Install Gem Nokogiri
+      become: yes
+      command: gem install nokogiri -v '1.10.1' --source 'https://rubygems.org/'
+
+    - name: Install Project Libs
+      become: yes
+      command: bundle install 
+      args:
+        chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
+
+    - name: Run App DB Setup
+      become: yes
+      command: bundle exec rails db:setup
+      args:
+        chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
+
+    - name: Run App DB Seed
+      become: no
+      command: bundle exec rails db:seed
+      args:
+        chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
+
+    - name: Run App Server
+      become: no
+      command: bundle exec rails server --binding 0.0.0.0 --port 3000
+      args:
+        chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
+
+
