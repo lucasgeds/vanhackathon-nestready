@@ -41,6 +41,9 @@ https://www.allaboutbirds.org/guide/Blue_Jay/lifehistory
 
 We named our chatbot Blue Jay because it cares about your nest. It smartly helps you to seamless deal for decades with probably one of the biggest bonds of your life: the mortgage.
 
+2min demo
+https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
+
 ## Context
 
 
@@ -99,8 +102,10 @@ Next steps are:
 
 # Find more information
 
-5min Pitch
-[add link] - coming soon
+2min demo
+https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
+
+![Blue Jay](https://im3.ezgif.com/tmp/ezgif-3-e2cfd15079ea.gif)
 
 Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
 
