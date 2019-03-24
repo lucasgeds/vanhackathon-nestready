@@ -125,4 +125,4 @@ https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=17%3A1&vi
 
 ### Live app
 
-[add link] - coming soon
+Running at ec2-54-201-95-157.us-west-2.compute.amazonaws.com
