@@ -117,10 +117,11 @@ class ChatContainer extends Component {
   };
 
   renderStepTwo = () => {
-    let installmentValue = 0;
-    let numberInstallments = 0;
+    const requestedValue = this.props.completedBody.valueRequested || 0;
+    let installmentValue = this.props.completedBody.valueRequested || 0;
+    let numberInstallments = 1;
 
-    // Logic for installments value x number
+    // Logic for installments installmentValue x numberInstallments is missin =(
 
     return (
       <Fragment>
@@ -131,7 +132,10 @@ class ChatContainer extends Component {
           min={0}
           max={10}
           step={2}
-          onChangeHandler={newValue => (installmentValue = newValue)}
+          onChangeHandler={newValue => {
+            numberInstallments = requestedValue / newValue;
+            installmentValue = newValue;
+          }}
         />
         <Slider
           label="Number of installments:"
@@ -139,7 +143,10 @@ class ChatContainer extends Component {
           prefix={'x'}
           min={0}
           max={10}
-          onChangeHandler={newValue => (numberInstallments = newValue)}
+          onChangeHandler={newValue => {
+            numberInstallments = requestedValue / newValue;
+            numberInstallments = newValue;
+          }}
         />
         <Button
           onClickHandler={() =>
@@ -220,12 +227,16 @@ class ChatContainer extends Component {
             </h1>
             <p>Here's what you got:</p>
             <ul>
-              <li>{`Amount requested: $ ${
-                this.props.completedBody.valueRequested
-              }.00`}</li>
-              <li>{`Installments details: $ ${
-                this.props.completedBody.installment_amount
-              }.00 x${this.props.completedBody.installments}`}</li>
+              <li>
+                <b>Amount requested:</b>{' '}
+                {`$ ${this.props.completedBody.valueRequested}.00`}
+              </li>
+              <li>
+                <b>Installments details:</b>{' '}
+                {`$ ${this.props.completedBody.installment_amount}.00 x ${
+                  this.props.completedBody.installments
+                }`}
+              </li>
             </ul>
           </Fragment>
         )}

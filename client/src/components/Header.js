@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header = props => (
   <header className="header">
-    <img src={Logo} alt="NestReady" />
+    <img src={props.img || Logo} alt="NestReady" />
     <div className="header-info">
       <h1>{props.title}</h1>
       <p>{props.address}</p>
@@ -17,6 +17,7 @@ const Header = props => (
 
 Header.propTypes = {
   title: PropTypes.string,
+  img: PropTypes.string,
   address: PropTypes.string,
 };
 
