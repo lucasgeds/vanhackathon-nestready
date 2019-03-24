@@ -1,12 +1,41 @@
 # Get the application running
 
--- step-by-step guide here
+## bluejay_api
+
+This project serves an API to be used by bluejay client.
+
+It runs with ruby 2.5.1 and postgresql 10. Having those 2 first dependencies installed, you
+should get the server up by doing the following inside `vanckathon-nestready/bluejay_api` directory:
+
+Install gems:
+```
+gem install bundler
+bundle install
+```
+
+Setup the database:
+```
+bundle exec rails db:setup
+bundle exec rails db:seed
+```
+
+Run the tests to see if everything is working:
+```
+bundle exec rails test
+```
+
+Start rails server:
+```
+bundle exec rails server
+```
+
+Server will be running on `http://localhost:3000`
 
 # Blue Jay
 
 The NestReady Debt Relationship solution
 
-"Blue Jays is a Canadian bird known for their intelligence and their tight family bonds" 
+"Blue Jays is a Canadian bird known for their intelligence and their tight family bonds"
 https://www.allaboutbirds.org/guide/Blue_Jay/lifehistory
 
 
@@ -23,9 +52,9 @@ For the user
 
 - one single trusted brand to interact along all the journey,
 - a faster process from the idea to find a new home until moving to the new property, and
-- more information to make the best decision. 
+- more information to make the best decision.
 
-Business needs 
+Business needs
 
 - the increase of conversion rates,
 - the increase of qualified leads, and
@@ -37,7 +66,7 @@ User Journey Map v1
 
 https://docs.google.com/presentation/d/13Am5Ts5ehQ0vTABKf-RbOOE6AjYVzN6kzUHgVc-SonU/edit#slide=id.g545b121198_0_0
 
-Getting more than 100 answers on an online survey we discovered facts about mortgage payers in Brazil: 
+Getting more than 100 answers on an online survey we discovered facts about mortgage payers in Brazil:
 
 - 63% frequently checks the mortgage status (how long, how much)
 - 40% do not plan but dream to finish the debt earlier
@@ -60,7 +89,7 @@ The Golden Path of the product should:
 1. Let the user choose between getting more credit or pay the debt faster,
 2. Let the user define the amount of credit needed
 3. Let the user easily choose if he will increase the amount of the installment or increase the time left to pay
-4. Warn the user that the approval is a manual step but we will contact him shortly 
+4. Warn the user that the approval is a manual step but we will contact him shortly
 5. Send an e-mail to the Realtor with the user's information
 
 Next steps are:
