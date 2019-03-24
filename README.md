@@ -71,6 +71,8 @@ User Journey Map v1
 
 https://docs.google.com/presentation/d/13Am5Ts5ehQ0vTABKf-RbOOE6AjYVzN6kzUHgVc-SonU/edit#slide=id.g545b121198_0_0
 
+<img src="journey.png" data-canonical-src="journey.png" width="300" />
+
 Getting more than 100 answers on an online survey we discovered facts about mortgage payers in Brazil:
 
 - 63% frequently checks the mortgage status (how long, how much)
@@ -111,11 +113,16 @@ Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
 
 https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=67%3A1574&viewport=371%2C276%2C0.464019&scaling=min-zoom
 
+<img src="style.png" data-canonical-src="style.png" width="300" />
+
 Prototype
 
 Test scenario: Now that you got a new remote job, your task is to ask Blue Jay for more credit to renovate your home-office.
 
 https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=17%3A1&viewport=453%2C41%2C0.23747&scaling=min-zoom
+
+<img src="proto1.png" data-canonical-src="proto1.png" width="300" />
+
 
 Live app
 [add link] - coming soon
