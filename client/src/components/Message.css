@@ -1,0 +1,24 @@
+.message {
+  background: #ffffff;
+  color: #4099d4;
+  font-weight: bold;
+  box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  align-self: flex-end;
+  padding: 16px 10px;
+  max-width: 195px;
+  margin-bottom: 16px;
+}
+.message-from-bluejay {
+  color: #37474f;
+  font-weight: normal;
+  align-self: flex-start;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}

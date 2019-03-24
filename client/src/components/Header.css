@@ -1,0 +1,23 @@
+.header {
+  background: #4099d4;
+  display: flex;
+  padding: 20px 3px;
+  color: white;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 2px;
+}
+
+.header-info h1 {
+  margin: 0 0 9px;
+}
+
+.header-info p {
+  margin: 0;
+  font-size: 14px;
+}

@@ -14,6 +14,6 @@ export const getPropertyMortgageInfo = mortgageID => dispatch => {
         payload: json,
       }),
     )
-    .catch(err => console.error('Failed to fetch all categories', err))
+    .catch(err => console.error('Failed to fetch all mortgage info', err))
     .then(() => isFetchingMortgageInfo(true));
 };
