@@ -33,7 +33,9 @@ Server will be running on `http://localhost:3000`
 
 # Blue Jay
 
-The NestReady Debt Relationship solution
+<img src="bluejay.jpg" data-canonical-src="bluejay.jpg" width="250" />
+
+The NestReady Mortgage Relationship solution
 
 "Blue Jays is a Canadian bird known for their intelligence and their tight family bonds"
 https://www.allaboutbirds.org/guide/Blue_Jay/lifehistory
@@ -43,6 +45,8 @@ We named our chatbot Blue Jay because it cares about your nest. It smartly helps
 
 2min demo
 https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
+
+<img src="proto.gif" data-canonical-src="proto.gif" width="350" />
 
 ## Context
 
@@ -68,6 +72,8 @@ We understand that the home buying experience starts when people are thinking to
 User Journey Map v1
 
 https://docs.google.com/presentation/d/13Am5Ts5ehQ0vTABKf-RbOOE6AjYVzN6kzUHgVc-SonU/edit#slide=id.g545b121198_0_0
+
+<img src="journey.png" data-canonical-src="journey.png" width="300" />
 
 Getting more than 100 answers on an online survey we discovered facts about mortgage payers in Brazil:
 
@@ -102,20 +108,21 @@ Next steps are:
 
 # Find more information
 
-2min demo
+### 2min demo
 https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
 
-![Blue Jay](https://im3.ezgif.com/tmp/ezgif-3-e2cfd15079ea.gif)
-
-Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
-
+### Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
 https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=67%3A1574&viewport=371%2C276%2C0.464019&scaling=min-zoom
 
-Prototype
+<img src="style.png" data-canonical-src="style.png" width="300" />
+
+### Prototype
 
 Test scenario: Now that you got a new remote job, your task is to ask Blue Jay for more credit to renovate your home-office.
-
 https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=17%3A1&viewport=453%2C41%2C0.23747&scaling=min-zoom
 
-Live app
-[add link] - coming soon
+<img src="proto1.png" data-canonical-src="proto1.png" width="300" />
+
+### Live app
+
+Running at ec2-54-201-95-157.us-west-2.compute.amazonaws.com
