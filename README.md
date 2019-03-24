@@ -35,7 +35,7 @@ Server will be running on `http://localhost:3000`
 
 <img src="bluejay.jpg" data-canonical-src="bluejay.jpg" width="250" />
 
-The NestReady Debt Relationship solution
+The NestReady Mortgage Relationship solution
 
 "Blue Jays is a Canadian bird known for their intelligence and their tight family bonds"
 https://www.allaboutbirds.org/guide/Blue_Jay/lifehistory
