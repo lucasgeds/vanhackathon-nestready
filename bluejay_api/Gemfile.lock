@@ -62,7 +62,7 @@ GEM
       xpath (~> 3.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (2.1.0)
+    chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     coffee-rails (4.2.2)
@@ -214,7 +214,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.17.2
+   2.0.1
