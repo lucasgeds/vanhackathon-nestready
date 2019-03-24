@@ -30,6 +30,13 @@ class BlueJayContainer extends Component {
           step: 2,
           valueRequested: value,
         });
+      case 2:
+        console.log(value);
+        return this.setState({
+          step: 3,
+          installments: value.installments,
+          installment_amount: value.installment_amount,
+        });
       default:
         return null;
     }
@@ -40,7 +47,6 @@ class BlueJayContainer extends Component {
     return (
       <div className="bluejay">
         {this.props.utils.isFetchingMortgageInfo ? (
-          // <Loader />
           <h1>Cleaning the nest for your visit...</h1>
         ) : (
           <div className="bluejay-container">

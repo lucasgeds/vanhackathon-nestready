@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import * as PropertyMortgageActions from '../actions/propertyMortgage';
+import * as PropertyMortgageActions from '../actions/propertyMortgage';
 // import { Loader } from '../components';
 
 import './ChatContainer.css';
@@ -26,7 +26,6 @@ class ChatContainer extends Component {
   }
 
   sendMessage = (from, message) => {
-    // console.log(this.state.chatMessages);
     const actualChat = this.state.chatMessages.concat();
     if (from === BLUEJAY) {
       this.setState({ writing: true }, () => {
@@ -47,22 +46,15 @@ class ChatContainer extends Component {
     }
   };
 
-  stepHandler = (e, step) => {
+  stepOneHandler = (e, step) => {
     e.preventDefault();
     const target = e.target;
     const value = target.getAttribute('data-value');
     const label = target.innerHTML;
-    switch (step) {
-      case 1:
-        this.sendMessage(this.props.propertyMortgage.borrower, label);
-        this.props.nextStepHandler && this.props.nextStepHandler(value);
-        setTimeout(() => this.sendStepMessage(2), 0);
-        return null;
-      case 2:
-        return null;
-      default:
-        return null;
-    }
+    this.sendMessage(this.props.propertyMortgage.borrower, label);
+    this.props.nextStepHandler && this.props.nextStepHandler(value);
+    setTimeout(() => this.sendStepMessage(2), 0);
+    return null;
   };
 
   stepOneSliderHandler = (e, value) => {
@@ -87,10 +79,10 @@ class ChatContainer extends Component {
     let value = 0;
     return (
       <Fragment>
-        <Button onClickHandler={e => this.stepHandler(e, 1)} value="25000">
+        <Button onClickHandler={e => this.stepOneHandler(e, 1)} value="25000">
           $ 25000.00
         </Button>
-        <Button onClickHandler={e => this.stepHandler(e, 1)} value="50000">
+        <Button onClickHandler={e => this.stepOneHandler(e, 1)} value="50000">
           $ 50000.00
         </Button>
         {!showSliderStepOne ? (
@@ -148,7 +140,17 @@ class ChatContainer extends Component {
           max={10}
           onChangeHandler={newValue => (numberInstallments = newValue)}
         />
-        <Button onClickHandler={e => console.log(e)} value="" type="cta">
+        <Button
+          onClickHandler={() =>
+            this.props.nextStepHandler &&
+            this.props.nextStepHandler({
+              installments: installmentValue,
+              installment_amount: numberInstallments,
+            })
+          }
+          value=""
+          type="cta"
+        >
           Confirm
         </Button>
       </Fragment>
@@ -186,20 +188,31 @@ class ChatContainer extends Component {
   render() {
     console.log(this.state.step);
     return (
-      <div className="chatContainer">
-        <div className="chat">
-          {this.state.chatMessages.map((message, index) => (
-            <Message
-              key={index}
-              from={message.from}
-              message={message.message}
-            />
-          ))}
-        </div>
-        {!this.state.writing && (
-          <div className="step-options">
-            {this.renderStepOptions(this.props.step)}
-          </div>
+      <div className={`chatContainer ${this.state.step === 3 && 'completed'}`}>
+        {this.state.step < 3 ? (
+          <Fragment>
+            <div className="chat">
+              {this.state.chatMessages.map((message, index) => (
+                <Message
+                  key={index}
+                  from={message.from}
+                  message={message.message}
+                />
+              ))}
+            </div>
+            {!this.state.writing && (
+              <div className="step-options">
+                {this.renderStepOptions(this.props.step)}
+              </div>
+            )}
+          </Fragment>
+        ) : (
+          <h1>
+            You are all set!
+            <br />
+            <br />
+            Our trusted realtor will answer in 24 hours
+          </h1>
         )}
       </div>
     );
@@ -220,7 +233,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      // postPropertyMortgageChange: PropertyMortgageActions.postPropertyMortgageChange,
+      postPropertyMortgageChange:
+        PropertyMortgageActions.postPropertyMortgageChange,
     },
     dispatch,
   );
