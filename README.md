@@ -125,4 +125,8 @@ https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=17%3A1&vi
 
 ### Live app
 
-Running at ec2-54-201-95-157.us-west-2.compute.amazonaws.com
+We tried to get the app running on AWS, but we ran out of time and it would
+unsafe to share the private key to the ec2 instance on a public GitHub repo. Sorry about that!
+
+We have an Ansible playbook though! It can be run against an ubuntu machine and get the API up
+and running locally or remotely depending on what server info you feed in the hosts file.
