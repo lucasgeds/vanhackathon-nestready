@@ -44,7 +44,7 @@ We named our chatbot Blue Jay because it cares about your nest. It smartly helps
 2min demo
 https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
 
-![](proto.gif)
+![](proto.gif | width=100)
 
 ## Context
 
@@ -106,8 +106,6 @@ Next steps are:
 
 2min demo
 https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
-
-![](proto.gif)
 
 Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
 
