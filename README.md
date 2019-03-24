@@ -45,6 +45,7 @@ We named our chatbot Blue Jay because it cares about your nest. It smartly helps
 https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
 
 ![](proto.gif | width=100)
+<img src="proto.gif" data-canonical-src="proto.gif" width="200" />
 
 ## Context
 
