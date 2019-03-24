@@ -1,12 +1,13 @@
 class MortgagesController < ApplicationController
+  before_action :set_mortgage, only: [:show]
+
+  # GET /mortgages/1.json
   def show
-    render json: {
-      borrower: "Frederick Watson",
-      property: "Townes Home",
-      address: "12, rue Sainte-Anne Québec, QC",
-      amount: 500_000.0,
-      installments: 360,
-      installment_amount: 1388.0
-    }
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_mortgage
+      @mortgage = Mortgage.find(params[:id])
+    end
 end

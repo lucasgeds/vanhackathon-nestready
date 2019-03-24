@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+townes:
+  id: 1
+  borrower: "Frederick Townes"
+  property: "Townes's Home"
+  address: "12, rue Sainte-Anne Québec, QC"
+  image_url: "url/to/image"
+  credit_amount: 500_000.0
+  installment_amount: 1750.0
+  installments_number: 360
+  installments_left: 300
+  interest_percentage: 0.26
+  total_amount: 630_000.0
