@@ -106,23 +106,21 @@ Next steps are:
 
 # Find more information
 
-2min demo
+### 2min demo
 https://www.youtube.com/watch?v=YA33RuNXs_s&feature=youtu.be
 
-Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
-
+### Blue Jay Design System - Colors, Icons, Typos, Components, Buttons, Navigation.
 https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=67%3A1574&viewport=371%2C276%2C0.464019&scaling=min-zoom
 
 <img src="style.png" data-canonical-src="style.png" width="300" />
 
-Prototype
+### Prototype
 
 Test scenario: Now that you got a new remote job, your task is to ask Blue Jay for more credit to renovate your home-office.
-
 https://www.figma.com/proto/Xn1u1IC5tqyOefbykHopuRpf/NestReady?node-id=17%3A1&viewport=453%2C41%2C0.23747&scaling=min-zoom
 
 <img src="proto1.png" data-canonical-src="proto1.png" width="300" />
 
+### Live app
 
-Live app
 [add link] - coming soon
