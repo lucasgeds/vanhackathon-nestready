@@ -1,32 +1,22 @@
 ---
-- hosts: all
+- hosts: bluejayserver
   tasks: 
     
     - name: Clean Local App Clone
-      become: no
+      become: yes
       file:
         path: /home/ubuntu/vanhackathon-nestready
         state: absent
     
     - name: Clone App Repository
       become: no
-      command: git clone https://github.com/lucasgeds/vanhackathon-nestready arg1
-      args:
-        creates: /home/ubuntu/vanhackathon-nestready
+      command: git clone https://github.com/lucasgeds/vanhackathon-nestready 
     
     - name: Install Packages
       become: yes  
-      apt: name={{item}} state=present
-      with_items:
-        - ruby2.5
-        - ruby2.5-dev
-        - build-essential
-        - patch
-        - zlib1g-dev
-        - liblzma-dev
-        - postgresql
-        - postgresql-server-dev-all
-        - nodejs
+      apt: 
+        name: ['ruby2.5', 'ruby2.5-dev', 'build-essential', 'patch', 'zlib1g-dev', 'liblzma-dev', 'postgresql', 'postgresql-server-dev-all', 'nodejs']
+        state: present
 
     - name: Install PostgreSQL Config
       become: yes
@@ -59,15 +49,13 @@
         chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
 
     - name: Run App DB Seed
-      become: no
+      become: yes
       command: bundle exec rails db:seed
       args:
         chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
 
     - name: Run App Server
-      become: no
-      command: bundle exec rails server --binding 0.0.0.0 --port 3000
-      args:
-        chdir: /home/ubuntu/vanhackathon-nestready/bluejay_api
+      become: yes
+      shell: cd /home/ubuntu/vanhackathon-nestready/bluejay_api; nohup bundle exec rails server --binding 0.0.0.0 --port 3000 </dev/null >/dev/null 2>&1 &
 
 
